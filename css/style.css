@@ -1,46 +1,91 @@
 
 body {
-  background: #111;
-  color: white;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 .container {
-  max-width: 700px;
-  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
   text-align: center;
 }
 .videos {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 video {
   width: 45%;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
   background: black;
 }
-.controls {
-  margin: 10px 0;
-}
 .controls button {
-  margin: 5px;
-  padding: 10px 15px;
+  margin: 8px;
+  padding: 12px 18px;
+  background: #2c0000;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1em;
+  transition: 0.3s;
+}
+.controls button:hover {
+  background: #b30000;
+}
+#callTimer {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-left: 10px;
 }
 .chat {
-  background: #222;
+  background: #1a1a1a;
+  border-radius: 10px;
   padding: 10px;
-  border-radius: 5px;
   margin-top: 10px;
 }
 #chatMessages {
-  max-height: 150px;
+  height: 150px;
   overflow-y: auto;
-  text-align: left;
   margin-bottom: 5px;
+  text-align: left;
 }
 #chatInput {
-  width: 75%;
+  width: 70%;
   padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+.ringing {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ringing h2 {
+  font-size: 2em;
+  color: #ff4d4d;
+}
+.ringing-buttons button {
+  font-size: 1.2em;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.accept {
+  background: #009933;
+  color: white;
+}
+.reject {
+  background: #cc0000;
+  color: white;
 }
