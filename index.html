@@ -8,15 +8,24 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
+  <div id="ringingScreen" class="ringing">
+    <h2>Incoming Call...</h2>
+    <div class="ringing-buttons">
+      <button id="acceptCall" class="accept">✅ Accept</button>
+      <button id="rejectCall" class="reject">❌ Reject</button>
+    </div>
+  </div>
+
+  <div class="container" id="mainUI" style="display:none">
     <h2>WebRTC Call - Room: <span id="roomLabel"></span></h2>
     <div class="videos">
-      <video id="localVideo" autoplay muted></video>
-      <video id="remoteVideo" autoplay></video>
+      <video id="localVideo" autoplay muted playsinline></video>
+      <video id="remoteVideo" autoplay playsinline></video>
     </div>
     <div class="controls">
       <button id="shareScreen">📺 Share Screen</button>
       <button id="recordCall">⏺️ Record</button>
+      <button id="toggleAudio">🔇 Mute</button>
       <button id="endCall">❌ End Call</button>
       <span id="callTimer">00:00</span>
     </div>
@@ -26,11 +35,12 @@
       <button id="sendChat">Send</button>
     </div>
   </div>
+
   <script>
     const room = new URLSearchParams(window.location.search).get("room") || "default";
     document.getElementById("roomLabel").textContent = room;
   </script>
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-  <script src="js/webrtc_v2.js"></script>
+  <script src="js/webrtc_v3.js"></script>
 </body>
 </html>
