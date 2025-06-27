@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebRTC Call</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>WebRTC Call - Room: <span id="roomLabel"></span></h2>
+    <div class="videos">
+      <video id="localVideo" autoplay muted></video>
+      <video id="remoteVideo" autoplay></video>
+    </div>
+    <div class="controls">
+      <button id="shareScreen">📺 Share Screen</button>
+      <button id="recordCall">⏺️ Record</button>
+      <button id="endCall">❌ End Call</button>
+      <span id="callTimer">00:00</span>
+    </div>
+    <div class="chat">
+      <div id="chatMessages"></div>
+      <input type="text" id="chatInput" placeholder="Type message...">
+      <button id="sendChat">Send</button>
+    </div>
+  </div>
+  <script>
+    const room = new URLSearchParams(window.location.search).get("room") || "default";
+    document.getElementById("roomLabel").textContent = room;
+  </script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="js/webrtc_v2.js"></script>
+</body>
+</html>
